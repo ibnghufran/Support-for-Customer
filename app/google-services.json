@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "980625177287",
+    "project_id": "support-for-customer",
+    "storage_bucket": "support-for-customer.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:980625177287:android:eb43f6343e218ca082dce2",
+        "android_client_info": {
+          "package_name": "com.ibnghufran.supportforcustomer"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCUYLOJZ_xgFI1Qp70HR3Grz_WddUAslZw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
