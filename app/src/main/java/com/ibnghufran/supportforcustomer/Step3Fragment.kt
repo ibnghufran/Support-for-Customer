@@ -11,8 +11,12 @@ class Step3Fragment : Fragment() {
 
     private var _binding: FragmentStep3Binding? = null
     private val binding get() = _binding!!
+    private var userData: UserInputData? = null
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         _binding = FragmentStep3Binding.inflate(inflater, container, false)
         return binding.root
     }
@@ -20,13 +24,24 @@ class Step3Fragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // Retrieve user data from arguments
+        arguments?.let {
+            userData = it.getParcelable("userInputData")
+        }
+
         binding.nextButton.setOnClickListener {
             val selectedPaymentModeId = binding.paymentModeGroup.checkedRadioButtonId
             when (selectedPaymentModeId) {
                 binding.rbCreditDebit.id -> {
                     // Navigate to CardDetailsFragment if Credit/Debit Card is selected
+                    val cardDetailsFragment = CardDetailsFragment()
+                    val args = Bundle().apply {
+                        putParcelable("userInputData", userData)
+                    }
+                    cardDetailsFragment.arguments = args
+
                     requireActivity().supportFragmentManager.beginTransaction()
-                        .replace(R.id.fragmentContainer, CardDetailsFragment())
+                        .replace(R.id.fragmentContainer, cardDetailsFragment)
                         .addToBackStack(null) // Allows back navigation
                         .commit()
                 }

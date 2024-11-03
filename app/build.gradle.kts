@@ -45,24 +45,27 @@ android {
 }
 
 dependencies {
-    implementation("androidx.core:core-ktx:1.9.0")
-    implementation("androidx.appcompat:appcompat:1.5.1")
-    implementation("com.google.android.material:material:1.7.0")
-    implementation("androidx.activity:activity-ktx:1.9.3")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+    implementation(libs.androidx.core.ktx.v190)
+    implementation(libs.androidx.appcompat.v151)
+    implementation(libs.material.v170)
+    implementation(libs.androidx.activity.ktx)
+    implementation(libs.androidx.constraintlayout.v214)
 
     // Firebase dependencies with direct version specification
-    implementation("com.google.firebase:firebase-database:21.0.0") // Firebase Realtime Database
-    implementation("com.google.firebase:firebase-auth:22.1.0") // Firebase Authentication
-    implementation ("com.google.firebase:firebase-firestore:25.1.1")
+    implementation(libs.firebase.database) // Firebase Realtime Database
+    implementation(libs.firebase.auth.v2210) // Firebase Authentication
+    implementation (libs.firebase.firestore)
     implementation(libs.androidx.activity)  // For Firestore (optional)
+    implementation (libs.firebase.database.ktx) // Check for the latest version
+    implementation (libs.firebase.auth.ktx) // If you need authentication
 
 
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.4")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.0")
 
-    implementation ("androidx.cardview:cardview:1.0.0") // Add this line
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit.v114)
+    androidTestImplementation(libs.androidx.espresso.core.v350)
+
+    implementation (libs.androidx.cardview) // Add this line
     // other dependencies
 
 }

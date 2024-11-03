@@ -15,6 +15,7 @@ class Step1Fragment : Fragment() {
     private lateinit var mobileNumber: EditText
     private lateinit var complaint: EditText
     private lateinit var nextButton: Button
+    private var userData: UserInputData? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,7 +31,22 @@ class Step1Fragment : Fragment() {
         nextButton.setOnClickListener {
             // Validate input fields
             if (validateFields()) {
-                (activity as MainActivity).goToNextFragment(1)
+                userData = UserInputData(
+                    fullName = fullName.text.toString().trim(),
+                    mobileNumber = mobileNumber.text.toString().trim(),
+                    complaint = complaint.text.toString().trim()
+                )
+                // Navigate to Step2Fragment and pass userData
+                val step2Fragment = Step2Fragment()
+                val args = Bundle().apply {
+                    putParcelable("userInputData", userData)
+                }
+                step2Fragment.arguments = args
+
+                (activity as MainActivity).supportFragmentManager.beginTransaction()
+                    .replace(R.id.fragmentContainer, step2Fragment)
+                    .addToBackStack(null)
+                    .commit()
             }
         }
 
