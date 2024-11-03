@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">Support for Customer</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="image_slider_showing_customer_care_support_options">Image slider showing customer care support options</string>
+    <string name="customer_care_support_instant_solution">CUSTOMER CARE SUPPORT INSTANT SOLUTION</string>
+    <string name="image_slider_image">Image Slider Image</string>
+    <string name="top_image_description">Top Correct Image Description</string>
+    <string name="we_are_verifying_your_details_please_wait_for_confirmation">We are verifying your details. Please Wait for confirmation.</string>
+    <string name="_05_00_00">05:00:00</string>
+    <string name="complaint_has_been_successfully_registered">Complaint Has Been Successfully Registered</string>
+    <string name="submit_another_query">Submit Another Query</string>
+    <string name="select_payment_mode">Select Payment Mode</string>
+    <string name="credit_debit_card">Credit/Debit Card</string>
 </resources>

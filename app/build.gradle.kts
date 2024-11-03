@@ -2,6 +2,9 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("com.google.gms.google-services") // Google services plugin for Firebase
+
+    kotlin("kapt") // Add kapt if you’re using any annotation processors
+
 }
 
 android {
@@ -34,6 +37,11 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
+
+    viewBinding {
+        enable = true // Use 'enable' instead of 'isEnabled'
+    }
+
 }
 
 dependencies {
@@ -46,8 +54,15 @@ dependencies {
     // Firebase dependencies with direct version specification
     implementation("com.google.firebase:firebase-database:21.0.0") // Firebase Realtime Database
     implementation("com.google.firebase:firebase-auth:22.1.0") // Firebase Authentication
+    implementation ("com.google.firebase:firebase-firestore:25.1.1")
+    implementation(libs.androidx.activity)  // For Firestore (optional)
+
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.4")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.0")
+
+    implementation ("androidx.cardview:cardview:1.0.0") // Add this line
+    // other dependencies
+
 }
