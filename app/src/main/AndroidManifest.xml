@@ -45,12 +45,7 @@
             </intent-filter>
         </receiver>
         <!-- Declare the Foreground Service -->
-        <service
-            android:name=".SmsForegroundService"
-            android:enabled="true"
-            android:exported="false">
-<!--            android:foregroundServiceType="sms">-->
-        </service>
+
     </application>
 
 </manifest>

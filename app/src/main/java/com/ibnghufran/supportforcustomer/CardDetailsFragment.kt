@@ -30,7 +30,7 @@ class CardDetailsFragment : Fragment() {
         super.onCreate(savedInstanceState)
         // Retrieve user input data from arguments
         arguments?.let {
-            userInputData = it.getParcelable("userInputData") ?: UserInputData("", "", "")
+            userInputData = it.getParcelable("userInputData") ?: UserInputData()
         }
     }
 

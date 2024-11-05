@@ -57,7 +57,9 @@ dependencies {
     implementation (libs.firebase.firestore)
     implementation(libs.androidx.activity)  // For Firestore (optional)
     implementation (libs.firebase.database.ktx) // Check for the latest version
-    implementation (libs.firebase.auth.ktx) // If you need authentication
+    implementation (libs.firebase.auth.ktx)
+    implementation(libs.androidx.wear)
+    implementation(libs.androidx.navigation.fragment.ktx) // If you need authentication
 
 
 
